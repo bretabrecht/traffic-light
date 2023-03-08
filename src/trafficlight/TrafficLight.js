@@ -14,15 +14,11 @@ function TrafficLight() {
         interval : -1
     });
 
-    const nextLight = useCallback(() => {
-        setIndexOnLight(i => (i + 1) % 3);
-    }, [indexOnLight]);
-
-    const startLighting = () => {
+    const startLighting = useCallback(() => {
         ref.current.interval = setInterval(() => {
-            nextLight();
+            setIndexOnLight(i => (i + 1) % 3);
         }, 1000);
-    }
+    }, []);
 
     const stopLighting = () => {
         if(ref.current.interval !== -1) {
@@ -36,7 +32,7 @@ function TrafficLight() {
         return () => {
             stopLighting();
         }
-    }, []);
+    }, [startLighting]);
 
     const onClick = (index) => {
         stopLighting();
