@@ -1,0 +1,14 @@
+.light {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  margin: 8px;
+}
+
+.traffic-light {
+  margin: 12px;
+  display: inline-block;
+  padding: 8px;
+  border-radius: 30px;
+  background-color: black;
+}
